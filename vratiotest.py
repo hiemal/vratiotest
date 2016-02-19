@@ -47,17 +47,23 @@ def LM_stat(y, k):
         dvec[j] = np.sum(y1[(j+1):(n+1)] * y1[0:(n-j-1)])/(np.sum(y1)**2)
     summ = np.sum(w* np.ravel(dvec))
     m2 = np.sqrt(n)*(vr-1)*((n*summ)**(-0.5))
-    return (m1,m2)
+    return (m1,m2,vr)
+    
     
     
 
 def LoMac(y, kvec):
+    """
+    The function returns M1 and M2 statistics of Lo and MacKinlay (1998).
+
+    M1: tests for iid series; M2: for uncorrelated series with possible heteroskedasticity; VR: variance ratio.
+    """
     n = len(y)
-    mq = np.zeros([len(kvec),2])
+    mq = np.zeros([len(kvec),3])
     for i in range(len(kvec)):
         k = kvec[i]
         LM = LM_stat(y,k)
         mq[i] = np.array(LM)
-    VR = pd.DataFrame(mq, columns = ["M1", "M2"], index = ['k='+str(k) for k in kvec])
+    VR = pd.DataFrame(mq, columns = ["M1", "M2", "VR"], index = ['k='+str(k) for k in kvec])
     return VR
 
