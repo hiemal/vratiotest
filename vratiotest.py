@@ -1,15 +1,9 @@
-
-# coding: utf-8
-
 """@
 Author: Z Hu, MIT
 2016-02-19
 
 Rewrite R's Lo.Mac funtion in vrtest package in Python.
-
 """
-
-# In[109]:
 
 from __future__ import division
 
@@ -18,10 +12,7 @@ import scipy as sp
 import pandas as pd
 
 
-
-
-
-# ##Define functions for vratiotest
+#Define functions for vratiotest
 
 
 def LM_stat(y, k):
@@ -48,7 +39,6 @@ def LM_stat(y, k):
     summ = np.sum(w* np.ravel(dvec))
     m2 = np.sqrt(n)*(vr-1)*((n*summ)**(-0.5))
     return (m1,m2,vr)
-    
     
     
 
