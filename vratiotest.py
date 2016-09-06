@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """@
-Author: Zizhang Hu, MIT
+Author: Z Hu, MIT
 2016-02-19
 
 Rewrite R's Lo.Mac funtion in vrtest package in Python.
